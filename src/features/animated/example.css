@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-items: center;
+}
+.element {
+  padding: 1rem;
+}
+.element p {
+  font-size: 1.2rem;
+  text-align: center;
+}
