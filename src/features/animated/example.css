@@ -1,6 +1,11 @@
+:root {
+  --accent: #116d6e;
+}
+
 .container {
   display: flex;
   justify-items: center;
+  gap: 1rem;
 }
 .element {
   padding: 1rem;
@@ -8,4 +13,19 @@
 .element p {
   font-size: 1.2rem;
   text-align: center;
+}
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+.tab {
+  position: relative;
+}
+.underline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 4px;
 }

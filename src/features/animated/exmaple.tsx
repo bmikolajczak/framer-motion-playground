@@ -23,26 +23,37 @@ export const AnimationExample: FC = () => {
     setRotate(20);
     setTimeout(() => {
       setRotate(0);
-      setSelectedCard(0);
     }, 1000);
   };
   return (
-    <div className="container">
-      {cardsContent.map(({ id, header, paragraph, background }) => (
-        <motion.div
-          animate={{
-            rotate: selectedCard === id ? rotate + 30 : -rotate,
-            backgroundColor: selectedCard === id ? background : "blue",
-          }}
-          whileHover={{ scale: 1.1 }}
-          key={id}
-          className="element"
-          onClick={() => rotateBoxes(id)}
-        >
-          <h3>{header}</h3>
-          <p>{paragraph}</p>
-        </motion.div>
-      ))}
-    </div>
+    <>
+      <div className="tabs">
+        {cardsContent.map(({ header, id, background }) => (
+          <div className="tab">
+            {header}
+            {selectedCard === id ? (
+              <motion.div animate={{ backgroundColor: background }} className="underline" layoutId="underline" />
+            ) : null}
+          </div>
+        ))}
+      </div>
+      <div className="container">
+        {cardsContent.map(({ id, header, paragraph, background }) => (
+          <motion.div
+            animate={{
+              rotate: selectedCard === id ? rotate + 5 : -rotate,
+              backgroundColor: selectedCard === id ? background : "blue",
+            }}
+            whileHover={{ scale: 1.1 }}
+            key={id}
+            className="element"
+            onClick={() => rotateBoxes(id)}
+          >
+            <h3>{header}</h3>
+            <p>{paragraph}</p>
+          </motion.div>
+        ))}
+      </div>
+    </>
   );
 };
